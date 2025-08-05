@@ -1,6 +1,6 @@
 # PurgeYunohost
-clean Yunohost
-Voici votre fichier `.deb` prêt à être installé sur votre instance Yunohost :
+Purge et clean Yunohost
+fichier `.deb` prêt à être installé sur votre instance Yunohost :
 
 👉 [Télécharger nettoyage-yunohost\_1.0\_all.deb](sandbox:/mnt/data/nettoyage-yunohost_1.0_all.deb)
 
