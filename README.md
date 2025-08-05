@@ -1,0 +1,2 @@
+# PurgeYunohost
+clean Yunohost
