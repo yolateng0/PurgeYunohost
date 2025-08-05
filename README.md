@@ -2,20 +2,16 @@
 Purge et clean Yunohost
 fichier `.deb` prêt à être installé sur votre instance Yunohost :
 
-👉 [Télécharger nettoyage-yunohost\_1.0\_all.deb](sandbox:/mnt/data/nettoyage-yunohost_1.0_all.deb)
+📌 Instructions
 
-### 📦 Pour l’installer sur votre serveur :
+    Téléchargez le script sur votre serveur :
 
-```bash
-sudo dpkg -i nettoyage-yunohost_1.0_all.deb
-```
+wget https://github.com/yolateng0/PurgeYunohost/releases/download/yunohost/nettoyage-yunohost_1.0_all.deb
+chmod +x install-nettoyage-yunohost.sh
 
-Cela installera le script dans `/usr/local/bin/nettoyage-yunohost`.
+    Lancez l’installation :
 
-### ▶️ Pour l'exécuter :
+./install-nettoyage-yunohost.sh
 
-```bash
-sudo nettoyage-yunohost
-```
+Le script sera installé dans /usr/local/bin/nettoyage-yunohost.
 
-Souhaitez-vous une version automatisée avec suppression directe des paquets en `residual-config` ?
