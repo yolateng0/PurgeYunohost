@@ -1,0 +1,46 @@
+#!/bin/bash
+
+echo "============================"
+echo "Nettoyage des anciens noyaux"
+echo "============================"
+
+CURRENT_KERNEL=$(uname -r)
+echo "Noyau actif : $CURRENT_KERNEL"
+echo "Suppression des noyaux obsolètes..."
+
+dpkg --list | grep 'linux-image-[0-9]' | awk '{print $2}' | grep -v "$CURRENT_KERNEL" | xargs sudo apt remove -y
+
+echo "============================"
+echo "Nettoyage des paquets orphelins"
+echo "============================"
+
+sudo apt autoremove --purge -y
+sudo apt autoclean -y
+sudo apt clean
+
+echo "============================"
+echo "Détection des paquets en état 'residual-config'"
+echo "============================"
+
+apt list --installed 2>/dev/null | grep 'residual-config'
+
+echo ""
+echo "Pour purger les paquets ci-dessus, vous pouvez exécuter :"
+echo "  sudo dpkg -l | grep '^rc' | awk '{print \$2}' | xargs sudo apt purge -y"
+echo ""
+
+echo "============================"
+echo "Nettoyage des fichiers de configuration obsolètes"
+echo "============================"
+
+sudo find /etc -name "*.dpkg-old" -delete
+sudo find /etc -name "*.dpkg-dist" -delete
+sudo find /etc -name "*.ucf-old" -delete
+
+echo "============================"
+echo "Vérification de l'espace disque"
+echo "============================"
+
+df -h
+
+echo "✅ Nettoyage terminé."
